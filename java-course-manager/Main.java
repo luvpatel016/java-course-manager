@@ -5,6 +5,8 @@ public class Main {
 
         Scanner input = new Scanner(System.in); 
 
+        ArrayList<Course> courses = new ArrayList<>();
+
         System.out.print("Enter course code: "); 
         String courseCode = input.nextLine(); 
 
@@ -15,6 +17,8 @@ public class Main {
 
         System.out.println(course.getCourseCode()); 
         System.out.println(course.getCourseName()); 
+
+        courses.add(course); 
 
         input.close(); 
     }
