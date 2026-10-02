@@ -33,10 +33,11 @@ public class Main {
 
         int menuChoice = 0;
 
-        while (menuChoice != 3) {
+        while (menuChoice != 4) {
             System.out.println("\n1. Add Course");
             System.out.println("2. View Courses");
-            System.out.println("3. Exit");
+            System.out.println("3. Remove Course");
+            System.out.println("4. Exit");
 
             System.out.print("Choose an option: ");
             menuChoice = input.nextInt();
@@ -54,19 +55,26 @@ public class Main {
                 courses.add(course);
 
                 System.out.println("Course added!");
-            }
-
-            else if (menuChoice == 2) {
+            } else if (menuChoice == 2) {
 
                 System.out.println("\nYour Courses:");
 
                 for (Course currentCourse : courses) {
                     System.out.println(currentCourse.getCourseCode() + " - " + currentCourse.getCourseName());
                 }
+            } else if (menuChoice == 3) {
+                System.out.print("Enter course number to remove: ");
+                int index = input.nextInt() - 1;
+                input.nextLine();
+
+                courses.remove(index);
+
+                System.out.println("Course removed!");
             }
 
-            else if (menuChoice == 3) {
-                System.out.println("Exiting program...");
+            else if (menuChoice == 4) {
+                System.out.println("Exiting...");
+                break;
             } else {
                 System.out.println("Invalid choice. Please try again.");
             }
