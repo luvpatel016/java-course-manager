@@ -63,13 +63,30 @@ public class Main {
                     System.out.println(currentCourse.getCourseCode() + " - " + currentCourse.getCourseName());
                 }
             } else if (menuChoice == 3) {
-                System.out.print("Enter course number to remove: ");
-                int index = input.nextInt() - 1;
-                input.nextLine();
 
-                courses.remove(index);
+                String removeChoice = "";
 
-                System.out.println("Course removed!");
+                while (!removeChoice.equalsIgnoreCase("done")) {
+
+                    System.out.println("\nCourses: ");
+
+                    for (int i = 0; i < courses.size(); i++) {
+                        System.out.println((i + 1) + ". " + courses.get(i).getCourseCode() + " - " +
+                                courses.get(i).getCourseName());
+                    }
+
+                    System.out.print("Enter course number to remove, or type 'done' to finish: ");
+                    removeChoice = input.nextLine();
+
+                    if (!removeChoice.equalsIgnoreCase("done")) {
+
+                        int index = Integer.parseInt(removeChoice) - 1;
+
+                        courses.remove(index);
+
+                        System.out.println("Course removed!");
+                    }
+                }
             }
 
             else if (menuChoice == 4) {
