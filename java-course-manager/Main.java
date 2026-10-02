@@ -1,25 +1,36 @@
-import java.util.Scanner; 
+import java.util.Scanner;
+import java.util.ArrayList;
 
-public class Main { 
-    public static void main(String[] args) { 
+public class Main {
+    public static void main(String[] args) {
 
-        Scanner input = new Scanner(System.in); 
-
+        Scanner input = new Scanner(System.in);
         ArrayList<Course> courses = new ArrayList<>();
 
-        System.out.print("Enter course code: "); 
-        String courseCode = input.nextLine(); 
+        String choice = "yes";
 
-        System.out.print("Enter course name: "); 
-        String courseName = input.nextLine(); 
+        while (choice.equalsIgnoreCase("yes")) {
 
-        Course course = new Course(courseCode, courseName); 
+            System.out.print("Enter course code: ");
+            String courseCode = input.nextLine();
 
-        System.out.println(course.getCourseCode()); 
-        System.out.println(course.getCourseName()); 
+            System.out.print("Enter course name: ");
+            String courseName = input.nextLine();
 
-        courses.add(course); 
+            Course course = new Course(courseCode, courseName);
 
-        input.close(); 
+            courses.add(course);
+
+            System.out.print("Do you want to add another course? (yes/no): ");
+            choice = input.nextLine();
+        }
+
+        System.out.println("\nYour courses: ");
+
+        for (Course course : courses) {
+            System.out.println(course.getCourseCode() + " - " + course.getCourseName());
+        }
+
+        input.close();
     }
 }
