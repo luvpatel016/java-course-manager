@@ -31,6 +31,47 @@ public class Main {
             System.out.println(course.getCourseCode() + " - " + course.getCourseName());
         }
 
-        input.close();
+        int menuChoice = 0;
+
+        while (menuChoice != 3) {
+            System.out.println("\n1. Add Course");
+            System.out.println("2. View Courses");
+            System.out.println("3. Exit");
+
+            System.out.print("Choose an option: ");
+            menuChoice = input.nextInt();
+            input.nextLine();
+
+            if (menuChoice == 1) {
+
+                System.out.print("Enter course code: ");
+                String courseCode = input.nextLine();
+
+                System.out.print("Enter course name: ");
+                String courseName = input.nextLine();
+
+                Course course = new Course(courseCode, courseName);
+                courses.add(course);
+
+                System.out.println("Course added!");
+            }
+
+            else if (menuChoice == 2) {
+
+                System.out.println("\nYour Courses:");
+
+                for (Course currentCourse : courses) {
+                    System.out.println(currentCourse.getCourseCode() + " - " + currentCourse.getCourseName());
+                }
+            }
+
+            else if (menuChoice == 3) {
+                System.out.println("Exiting program...");
+            } else {
+                System.out.println("Invalid choice. Please try again.");
+            }
+
+            input.close();
+        }
     }
 }
