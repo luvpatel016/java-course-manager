@@ -165,9 +165,6 @@ public class Main {
             } else if (menuChoice < 1 || menuChoice > 6) { 
                 System.out.println("Invalid choice. Please try again!");
             }
-
-            
-
             input.close();
         }
     }
