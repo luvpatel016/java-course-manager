@@ -53,10 +53,23 @@ public class Main {
                 System.out.print("Enter course name: ");
                 String courseName = input.nextLine();
 
-                Course course = new Course(courseCode, courseName);
-                courses.add(course);
+                boolean duplicate = false; 
 
-                System.out.println("Course added!");
+                for (Course currentCourse : courses) { 
+                    if (currentCourse.getCourseCode().equalsIgnoreCase(courseCode)) { 
+                        duplicate = true;
+                        break;
+                    }
+                }
+                
+                if (duplicate) { 
+                    System.out.println("Course already exists!"); 
+                } else { 
+                    Course course = new Course(courseCode, courseName); 
+                    courses.add(course); 
+
+                    System.out.println("Course added!"); 
+                }
             } 
             
             else if (menuChoice == 2) {
@@ -152,6 +165,8 @@ public class Main {
             } else if (menuChoice < 1 || menuChoice > 6) { 
                 System.out.println("Invalid choice. Please try again!");
             }
+
+            
 
             input.close();
         }
