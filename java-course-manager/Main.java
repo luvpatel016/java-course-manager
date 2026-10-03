@@ -107,13 +107,12 @@ public class Main {
                     }
                 }
             }
-
+            
             else if (menuChoice == 5) { 
                 System.out.println("Exiting program. Goodbye!"); 
             } else if (menuChoice < 1 || menuChoice > 5) { 
                 System.out.println("Invalid choice. Please try again."); 
             }
-
             input.close();
         }
     }
