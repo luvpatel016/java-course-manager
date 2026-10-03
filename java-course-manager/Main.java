@@ -33,12 +33,13 @@ public class Main {
 
         int menuChoice = 0;
 
-        while (menuChoice != 5) {
+        while (menuChoice != 6) {
             System.out.println("\n1. Add Course");
             System.out.println("2. View Courses");
             System.out.println("3. Remove Course");
             System.out.println("4. Search Course");
-            System.out.println("5. Exit");
+            System.out.println("5. Edit Course");
+            System.out.println("6. Exit");
 
             System.out.print("Choose an option: ");
             menuChoice = input.nextInt();
@@ -116,10 +117,42 @@ public class Main {
             }
 
             else if (menuChoice == 5) { 
-                System.out.println("Exiting program. Goodbye!"); 
-            } else if (menuChoice < 1 || menuChoice > 5) { 
-                System.out.println("Invalid choice. Please try again."); 
+
+                System.out.print("Enter course code to edit: "); 
+                String editCode = input.nextLine(); 
+
+                boolean found = false; 
+
+                for (Course currentCourse : courses) { 
+
+                    if (currentCourse.getCourseCode().equalsIgnoreCase(editCode)) { 
+
+                        System.out.print("Current course name: " + currentCourse.getCourseName()); 
+
+                        System.out.print("Enter new course name: ");
+                        String newCourseName = input.nextLine(); 
+
+                        currentCourse.setCourseName(newCourseName); 
+
+                        System.out.println("Course updated!"); 
+                        found = true; 
+                    }
+                }
+                if (!found) { 
+                    System.out.println("Course not found!");
+                }
+
+                else if (menuChoice == 6) { 
+                    System.out.println("Exiting program. Goodbye!");
+                }
             }
+
+            else if (menuChoice == 6) { 
+                System.out.println("Exiting program. Goodbye!");
+            } else if (menuChoice < 1 || menuChoice > 6) { 
+                System.out.println("Invalid choice. Please try again!");
+            }
+
             input.close();
         }
     }
