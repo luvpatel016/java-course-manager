@@ -99,15 +99,22 @@ public class Main {
                 System.out.print("Enter course code to search: "); 
                 String searchCode = input.nextLine(); 
 
+                boolean found = false;
+
                 for (Course currentCourse : courses) { 
 
                     if (currentCourse.getCourseCode().equalsIgnoreCase(searchCode)) { 
 
-                        System.out.println(currentCourse.getCourseCode() + " - " + currentCourse.getCourseName()); 
+                        System.out.println(currentCourse.getCourseCode() + " - " + currentCourse.getCourseName());
+                        found = true;  
                     }
                 }
+
+                if (!found) { 
+                    System.out.println("Course not found."); 
+                }
             }
-            
+
             else if (menuChoice == 5) { 
                 System.out.println("Exiting program. Goodbye!"); 
             } else if (menuChoice < 1 || menuChoice > 5) { 
