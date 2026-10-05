@@ -11,7 +11,7 @@ public class Main {
 
         while (choice.equalsIgnoreCase("yes")) {
 
-            System.out.print("Enter course code: ");
+            System.out.print("\nEnter course code: ");
             String courseCode = input.nextLine();
 
             System.out.print("Enter course name: ");
@@ -21,7 +21,7 @@ public class Main {
 
             courses.add(course);
 
-            System.out.print("Do you want to add another course? (yes/no): ");
+            System.out.print("\nDo you want to add another course? (yes/no): ");
             choice = input.nextLine();
         }
 
@@ -53,25 +53,25 @@ public class Main {
                 System.out.print("Enter course name: ");
                 String courseName = input.nextLine();
 
-                boolean duplicate = false; 
+                boolean duplicate = false;
 
-                for (Course currentCourse : courses) { 
-                    if (currentCourse.getCourseCode().equalsIgnoreCase(courseCode)) { 
+                for (Course currentCourse : courses) {
+                    if (currentCourse.getCourseCode().equalsIgnoreCase(courseCode)) {
                         duplicate = true;
                         break;
                     }
                 }
-                
-                if (duplicate) { 
-                    System.out.println("Course already exists!"); 
-                } else { 
-                    Course course = new Course(courseCode, courseName); 
-                    courses.add(course); 
 
-                    System.out.println("Course added!"); 
+                if (duplicate) {
+                    System.out.println("Course already exists!");
+                } else {
+                    Course course = new Course(courseCode, courseName);
+                    courses.add(course);
+
+                    System.out.println("Course added!");
                 }
-            } 
-            
+            }
+
             else if (menuChoice == 2) {
 
                 System.out.println("\nYour Courses:");
@@ -79,8 +79,8 @@ public class Main {
                 for (Course currentCourse : courses) {
                     System.out.println(currentCourse.getCourseCode() + " - " + currentCourse.getCourseName());
                 }
-            } 
-            
+            }
+
             else if (menuChoice == 3) {
 
                 String removeChoice = "";
@@ -109,64 +109,63 @@ public class Main {
             }
 
             else if (menuChoice == 4) {
-                
-                System.out.print("Enter course code to search: "); 
-                String searchCode = input.nextLine(); 
+
+                System.out.print("Enter course code to search: ");
+                String searchCode = input.nextLine();
 
                 boolean found = false;
 
-                for (Course currentCourse : courses) { 
+                for (Course currentCourse : courses) {
 
-                    if (currentCourse.getCourseCode().equalsIgnoreCase(searchCode)) { 
+                    if (currentCourse.getCourseCode().equalsIgnoreCase(searchCode)) {
 
                         System.out.println(currentCourse.getCourseCode() + " - " + currentCourse.getCourseName());
-                        found = true;  
+                        found = true;
                     }
                 }
 
-                if (!found) { 
-                    System.out.println("Course not found."); 
+                if (!found) {
+                    System.out.println("Course not found.");
                 }
             }
 
-            else if (menuChoice == 5) { 
+            else if (menuChoice == 5) {
 
-                System.out.print("Enter course code to edit: "); 
-                String editCode = input.nextLine(); 
+                System.out.print("Enter course code to edit: ");
+                String editCode = input.nextLine();
 
-                boolean found = false; 
+                boolean found = false;
 
-                for (Course currentCourse : courses) { 
+                for (Course currentCourse : courses) {
 
-                    if (currentCourse.getCourseCode().equalsIgnoreCase(editCode)) { 
+                    if (currentCourse.getCourseCode().equalsIgnoreCase(editCode)) {
 
-                        System.out.print("Current course name: " + currentCourse.getCourseName()); 
+                        System.out.print("Current course name: " + currentCourse.getCourseName());
 
                         System.out.print("Enter new course name: ");
-                        String newCourseName = input.nextLine(); 
+                        String newCourseName = input.nextLine();
 
-                        currentCourse.setCourseName(newCourseName); 
+                        currentCourse.setCourseName(newCourseName);
 
-                        System.out.println("Course updated!"); 
-                        found = true; 
+                        System.out.println("Course updated!");
+                        found = true;
                     }
                 }
-                if (!found) { 
+                if (!found) {
                     System.out.println("Course not found!");
                 }
 
-                else if (menuChoice == 6) { 
+                else if (menuChoice == 6) {
                     System.out.println("Exiting program. Goodbye!");
                 }
             }
 
-            else if (menuChoice == 6) { 
+            else if (menuChoice == 6) {
                 System.out.println("Exiting program. Goodbye!");
-            } else if (menuChoice < 1 || menuChoice > 6) { 
+            } else if (menuChoice < 1 || menuChoice > 6) {
                 System.out.println("Invalid choice. Please try again!");
             }
-            
-            input.close();
         }
+        input.close();
     }
 }
