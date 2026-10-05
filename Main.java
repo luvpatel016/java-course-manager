@@ -141,8 +141,8 @@ public class Main {
                     if (currentCourse.getCourseCode().equalsIgnoreCase(editCode)) {
 
                         System.out.print("Current course name: " + currentCourse.getCourseName());
-
-                        System.out.print("Enter new course name: ");
+                        System.out.println(); // new line
+                        System.out.print("\nEnter new course name: ");
                         String newCourseName = input.nextLine();
 
                         currentCourse.setCourseName(newCourseName);
