@@ -1,26 +1,18 @@
-import java.util.ArrayList;
+public class Assignment {
 
-public class Assigment { 
+    private String assignmentName;
+    private double grade;
 
-    private String assignmentName; 
-    private double grade; 
-    private ArrayList<Assignment> assignments;
-
-    public Assignment(String assignmentName, double grade) { 
-        this.assignmentName = assignmentName; 
-        this.grade = grade; 
-        assignments = new ArrayList<>();
+    public Assignment(String assignmentName, double grade) {
+        this.assignmentName = assignmentName;
+        this.grade = grade;
     }
 
-        public String getAssignmentName() { 
-            return assignmentName; 
-        }
+    public String getAssignmentName() {
+        return assignmentName;
+    }
 
-        public double getGrade() { 
-            return grade; 
-        }
-
-        public void setCourseName(String courseName) { 
-            this.courseName = courseName; 
-        }
+    public double getGrade() {
+        return grade;
+    }
 }
