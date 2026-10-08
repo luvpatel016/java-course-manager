@@ -120,7 +120,9 @@ public class Main {
                     if (currentCourse.getCourseCode().equalsIgnoreCase(searchCode)) {
 
                         System.out.println(currentCourse.getCourseCode() + " - " + currentCourse.getCourseName());
+
                         found = true;
+                        break;
                     }
                 }
 
