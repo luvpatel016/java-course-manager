@@ -154,10 +154,6 @@ public class Main {
                 if (!found) {
                     System.out.println("Course not found!");
                 }
-
-                else if (menuChoice == 6) {
-                    System.out.println("Exiting program. Goodbye!");
-                }
             }
 
             else if (menuChoice == 6) {
