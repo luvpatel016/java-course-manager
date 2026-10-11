@@ -190,6 +190,37 @@ public class Main {
                     System.out.println("Course not found!");
                 }
             }
+
+            else if (menuChoice == 7) {
+
+                System.out.print("Enter course code: ");
+                String courseCode = input.nextLine();
+
+                boolean found = false;
+
+                for (Course currentCourse : courses) {
+
+                    if (currentCourse.getCourseCode().equalsIgnoreCase(courseCode)) {
+
+                        found = true;
+                        System.out.println("\nAssignments for " + currentCourse.getCourseCode() + ":");
+
+                        if (currentCourse.getAssignments().isEmpty()) {
+                            System.out.println("No assignments found!");
+                        } else {
+
+                            for (Assignment assignment : currentCourse.getAssignments()) {
+                                System.out.println(assignment.getAssignmentName() + " - " + assignment.getGrade());
+                            }
+                        }
+                        break;
+                    }
+                }
+
+                if (!found) {
+                    System.out.println("Course not found!");
+                }
+            }
             input.close();
         }
     }
