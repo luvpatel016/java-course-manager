@@ -161,11 +161,36 @@ public class Main {
             }
 
             else if (menuChoice == 6) {
-                System.out.println("Exiting program. Goodbye!");
-            } else if (menuChoice < 1 || menuChoice > 6) {
-                System.out.println("Invalid choice. Please try again!");
+                System.out.print("Enter course code: ");
+                String courseCode = input.nextLine();
+
+                boolean found = false;
+
+                for (Course currentCourse : courses) {
+
+                    if (currentCourse.getCourseCode().equalsIgnoreCase(courseCode)) {
+
+                        System.out.print("Enter assignment name: ");
+                        String assignmentName = input.nextLine();
+
+                        System.out.print("Enter grade: ");
+                        double grade = input.nextDouble();
+                        input.nextLine();
+
+                        Assignment assignment = new Assignment(assignmentName, grade);
+
+                        currentCourse.addAssignment(assignment);
+                        System.out.println("Assignment added!");
+
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    System.out.println("Course not found!");
+                }
             }
+            input.close();
         }
-        input.close();
     }
 }
