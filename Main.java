@@ -33,13 +33,15 @@ public class Main {
 
         int menuChoice = 0;
 
-        while (menuChoice != 6) {
+        while (menuChoice != 8) {
             System.out.println("\n1. Add Course");
             System.out.println("2. View Courses");
             System.out.println("3. Remove Course");
             System.out.println("4. Search Course");
             System.out.println("5. Edit Course");
-            System.out.println("6. Exit");
+            System.out.println("6. Add Assignments");
+            System.out.println("7. View Assignments");
+            System.out.println("8. Exit");
 
             System.out.print("Choose an option: ");
             menuChoice = input.nextInt();
