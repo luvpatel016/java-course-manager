@@ -221,7 +221,13 @@ public class Main {
                     System.out.println("Course not found!");
                 }
             }
-            input.close();
+
+            else if (menuChoice == 8) {
+                System.out.println("Exiting program. Goodbye!");
+            } else {
+                System.out.println("Invalid choice. Please try again!");
+            }
         }
+        input.close();
     }
 }
