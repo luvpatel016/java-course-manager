@@ -33,7 +33,7 @@ public class Main {
 
         int menuChoice = 0;
 
-        while (menuChoice != 8) {
+        while (menuChoice != 9) {
             System.out.println("\n1. Add Course");
             System.out.println("2. View Courses");
             System.out.println("3. Remove Course");
@@ -41,7 +41,8 @@ public class Main {
             System.out.println("5. Edit Course");
             System.out.println("6. Add Assignments");
             System.out.println("7. View Assignments");
-            System.out.println("8. Exit");
+            System.out.println("8. Course Average");
+            System.out.println("9. Exit");
 
             System.out.print("Choose an option: ");
             menuChoice = input.nextInt();
@@ -223,9 +224,39 @@ public class Main {
             }
 
             else if (menuChoice == 8) {
-                System.out.println("Exiting program. Goodbye!");
-            } else {
-                System.out.println("Invalid choice. Please try again!");
+
+                System.out.println("Enter course code: ");
+                String courseCode = input.nextLine();
+
+                boolean found = false;
+
+                for (Course currentCourse : courses) {
+
+                    if (currentCourse.getCourseCode().equalsIgnoreCase(courseCode)) {
+
+                        found = true;
+
+                        if (currentCourse.getAssignments().isEmpty()) {
+                            System.out.println("No assignments found");
+                        } else {
+
+                            double total = 0;
+
+                            for (Assignment assignment : currentCourse.getAssignments()) {
+                                total += assignment.getGrade();
+                            }
+
+                            double average = total / currentCourse.getAssignments().size();
+
+                            System.out.println("Course average: " + average);
+                        }
+
+                        break;
+                    }
+                }
+                if (!found) {
+                    System.out.println("Course not found!");
+                }
             }
         }
         input.close();
