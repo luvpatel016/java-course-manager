@@ -47,3 +47,9 @@ Compile the Java files:
 
 ```bash
 javac Main.java Course.java Assignment.java
+```
+Then do: 
+
+```bash
+java Main
+```
