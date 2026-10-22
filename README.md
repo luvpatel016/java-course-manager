@@ -2,19 +2,7 @@
 
 A console-based Java application for managing college courses, assignments, and grades.
 
-## Features
 
-- Add courses
-- View all courses
-- Prevent duplicate course codes
-- Search for courses by course code
-- Edit course names
-- Remove courses
-- Add assignments to specific courses
-- View assignments for a course
-- Store assignment grades
-- Calculate course averages
-- Exit through the menu
 
 ## Language Used
 
